@@ -1,0 +1,41 @@
+var readlineSync = require("readline-sync");
+
+//arrays with nested object having list of questions and correct answers.
+var questionList = [{
+    question: "Where do I leave?",
+    answer: "Bangalore",
+},{
+    question: "My favorite super hero would be? ",
+    answer: "Shaktiman",
+},{
+    question: "Where do I work? ",
+    answer: "Microsoft"
+}];
+
+//empty string variable
+var score = 0;
+
+//function quizApp
+function quizApp(question, answer){
+    if (question.toLowerCase() === answer.toLowerCase()){
+        console.log("Right answer");
+        score += 5;
+    }
+    else {
+        console.log("wrong answer");
+        score -= 2;
+    }
+    return score;
+}
+
+//for loop:
+for (var i = 0; i< questionList.length; i++){
+    var qNum = i+1;
+    var askQuestion = readlineSync.question("Q." +qNum + ". " + questionList[i].question + "\n\Ans: ");
+    var correctAnswer = questionList[i].answer;
+
+    console.log(quizApp(askQuestion, correctAnswer));
+}
+
+//total score
+console.log("Your total score is: %s",score);

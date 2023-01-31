@@ -29,7 +29,7 @@ function quizApp(question, answer){
 }
 
 //for loop:
-for (var i = 0; i< questionList.length; i++){
+for (var i = 0; i < questionList.length; i++){
     var qNum = i+1;
     var askQuestion = readlineSync.question("Q." +qNum + ". " + questionList[i].question + "\n\Ans: ");
     var correctAnswer = questionList[i].answer;
